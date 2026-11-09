@@ -1,0 +1,531 @@
+{
+  "version": "0.1.0",
+  "seed": 0,
+  "iou_threshold": 0.5,
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.4",
+    "platform": "Linux-6.12.94+-x86_64-with-glibc2.39"
+  },
+  "tasks": {
+    "2d": {
+      "shared": {
+        "init": "shared",
+        "parameter_count": 337,
+        "n_train": 108,
+        "n_test": 36,
+        "inr_test_iou": {
+          "mean": 0.999466,
+          "per_class": {
+            "circle": 1.0,
+            "square": 1.0,
+            "triangle": 0.998397
+          }
+        },
+        "controls_iou_to_own_target": {
+          "trained": {
+            "mean": 0.999466
+          },
+          "permuted": {
+            "mean": 0.999466
+          },
+          "shuffled": {
+            "mean": 0.414792
+          },
+          "random": {
+            "mean": 0.094366
+          }
+        },
+        "weight_probes": {
+          "raw": {
+            "test": {
+              "ridge": 0.888889,
+              "centroid": 0.888889
+            },
+            "permuted": {
+              "ridge": 0.388889,
+              "centroid": 0.277778
+            },
+            "shuffled": {
+              "ridge": 0.5,
+              "centroid": 0.222222
+            },
+            "random_abstain": {
+              "ridge": 0.0,
+              "centroid": 0.0
+            }
+          },
+          "canonical": {
+            "test": {
+              "ridge": 0.833333,
+              "centroid": 0.916667
+            },
+            "permuted": {
+              "ridge": 0.833333,
+              "centroid": 0.916667
+            }
+          }
+        },
+        "ridge_by_layer": {
+          "w1": 0.805556,
+          "w2": 0.888889,
+          "w3": 0.638889
+        },
+        "diffusion_pca": {
+          "components": 32,
+          "variance_explained": 0.910225,
+          "timesteps": 40,
+          "train_steps": 3000,
+          "denoise_timestep": 10,
+          "denoise_mse": {
+            "real": {
+              "mean": 2.568944,
+              "median": 0.67375
+            },
+            "permuted": {
+              "mean": 512.822842,
+              "median": 327.629164
+            },
+            "shuffled": {
+              "mean": 344.069081,
+              "median": 312.708398
+            },
+            "random": {
+              "mean": 84.753984,
+              "median": 80.592433
+            }
+          },
+          "samples": {
+            "n": 48,
+            "valid_rate": 1.0,
+            "mean_best_iou": 0.759539,
+            "class_counts": {
+              "circle": 29,
+              "square": 10,
+              "triangle": 9,
+              "unrecognized": 0
+            },
+            "class_accuracy": 0.520833
+          },
+          "latent_gaussian": {
+            "n": 48,
+            "valid_rate": 0.9375,
+            "mean_best_iou": 0.715433,
+            "class_counts": {
+              "circle": 21,
+              "square": 15,
+              "triangle": 9,
+              "unrecognized": 3
+            }
+          },
+          "memorization": {
+            "mean_nn_weight_distance": 5.842017,
+            "median_train_loo_nn_distance": 7.189977,
+            "nn_distance_ratio": 0.812522,
+            "mean_max_iou_to_train_mask": 0.819357
+          },
+          "full_dimensional": {
+            "n": 48,
+            "valid_rate": 0.25,
+            "mean_best_iou": 0.254513,
+            "class_counts": {
+              "circle": 7,
+              "square": 2,
+              "triangle": 3,
+              "unrecognized": 36
+            },
+            "class_accuracy": 0.0625,
+            "train_steps": 1200,
+            "note": "Epsilon model on the full standardized weight vector, no PCA."
+          },
+          "trained_on_shuffled": {
+            "n": 48,
+            "valid_rate": 0.25,
+            "mean_best_iou": 0.435228,
+            "class_counts": {
+              "circle": 0,
+              "square": 12,
+              "triangle": 0,
+              "unrecognized": 36
+            },
+            "class_accuracy": 0.020833,
+            "variance_explained": 0.525234,
+            "note": "Same DDPM, but every training network had its tensors shuffled first."
+          }
+        },
+        "figures": {
+          "reconstruction": "results/figures/recon_2d_shared.png",
+          "controls": "results/figures/controls_2d_shared.png",
+          "hyperplanes": "results/figures/hyperplanes_2d_shared.png",
+          "samples": "results/figures/samples_2d_shared.png"
+        }
+      },
+      "independent": {
+        "init": "independent",
+        "parameter_count": 337,
+        "n_train": 108,
+        "n_test": 36,
+        "inr_test_iou": {
+          "mean": 0.999486,
+          "per_class": {
+            "circle": 1.0,
+            "square": 1.0,
+            "triangle": 0.998457
+          }
+        },
+        "controls_iou_to_own_target": {
+          "trained": {
+            "mean": 0.999486
+          },
+          "permuted": {
+            "mean": 0.999486
+          },
+          "shuffled": {
+            "mean": 0.203871
+          },
+          "random": {
+            "mean": 0.100221
+          }
+        },
+        "weight_probes": {
+          "raw": {
+            "test": {
+              "ridge": 0.444444,
+              "centroid": 0.416667
+            },
+            "permuted": {
+              "ridge": 0.305556,
+              "centroid": 0.305556
+            },
+            "shuffled": {
+              "ridge": 0.305556,
+              "centroid": 0.333333
+            },
+            "random_abstain": {
+              "ridge": 0.0,
+              "centroid": 0.0
+            }
+          },
+          "canonical": {
+            "test": {
+              "ridge": 0.5,
+              "centroid": 0.388889
+            },
+            "permuted": {
+              "ridge": 0.5,
+              "centroid": 0.388889
+            }
+          }
+        },
+        "ridge_by_layer": {
+          "w1": 0.305556,
+          "w2": 0.527778,
+          "w3": 0.416667
+        },
+        "diffusion_pca": {
+          "components": 32,
+          "variance_explained": 0.700449,
+          "timesteps": 40,
+          "train_steps": 3000,
+          "denoise_timestep": 10,
+          "denoise_mse": {
+            "real": {
+              "mean": 1.403671,
+              "median": 1.282692
+            },
+            "permuted": {
+              "mean": 1.509217,
+              "median": 1.465073
+            },
+            "shuffled": {
+              "mean": 0.922444,
+              "median": 0.893803
+            },
+            "random": {
+              "mean": 0.671282,
+              "median": 0.668545
+            }
+          },
+          "samples": {
+            "n": 48,
+            "valid_rate": 0.583333,
+            "mean_best_iou": 0.548342,
+            "class_counts": {
+              "circle": 10,
+              "square": 17,
+              "triangle": 1,
+              "unrecognized": 20
+            },
+            "class_accuracy": 0.145833
+          },
+          "latent_gaussian": {
+            "n": 48,
+            "valid_rate": 0.666667,
+            "mean_best_iou": 0.516238,
+            "class_counts": {
+              "circle": 16,
+              "square": 11,
+              "triangle": 5,
+              "unrecognized": 16
+            }
+          },
+          "memorization": {
+            "mean_nn_weight_distance": 15.549637,
+            "median_train_loo_nn_distance": 23.444306,
+            "nn_distance_ratio": 0.663259,
+            "mean_max_iou_to_train_mask": 0.517402
+          }
+        },
+        "figures": {
+          "reconstruction": "results/figures/recon_2d_independent.png",
+          "samples": "results/figures/samples_2d_independent.png"
+        }
+      }
+    },
+    "3d": {
+      "shared": {
+        "init": "shared",
+        "parameter_count": 353,
+        "n_train": 54,
+        "n_test": 18,
+        "inr_test_iou": {
+          "mean": 0.997139,
+          "per_class": {
+            "sphere": 1.0,
+            "cube": 0.998084,
+            "octahedron": 0.993333
+          }
+        },
+        "controls_iou_to_own_target": {
+          "trained": {
+            "mean": 0.997139
+          },
+          "permuted": {
+            "mean": 0.997139
+          },
+          "shuffled": {
+            "mean": 0.277127
+          },
+          "random": {
+            "mean": 0.042974
+          }
+        },
+        "weight_probes": {
+          "raw": {
+            "test": {
+              "ridge": 0.777778,
+              "centroid": 0.777778
+            },
+            "permuted": {
+              "ridge": 0.388889,
+              "centroid": 0.555556
+            },
+            "shuffled": {
+              "ridge": 0.277778,
+              "centroid": 0.277778
+            },
+            "random_abstain": {
+              "ridge": 0.0,
+              "centroid": 0.0
+            }
+          },
+          "canonical": {
+            "test": {
+              "ridge": 0.888889,
+              "centroid": 0.722222
+            },
+            "permuted": {
+              "ridge": 0.888889,
+              "centroid": 0.722222
+            }
+          }
+        },
+        "ridge_by_layer": {
+          "w1": 0.722222,
+          "w2": 0.611111,
+          "w3": 0.722222
+        },
+        "diffusion_pca": {
+          "components": 24,
+          "variance_explained": 0.926497,
+          "timesteps": 40,
+          "train_steps": 2500,
+          "denoise_timestep": 10,
+          "denoise_mse": {
+            "real": {
+              "mean": 4.814421,
+              "median": 1.736187
+            },
+            "permuted": {
+              "mean": 65856.73291,
+              "median": 60652.611255
+            },
+            "shuffled": {
+              "mean": 48155.738355,
+              "median": 51558.908552
+            },
+            "random": {
+              "mean": 11377.973381,
+              "median": 11617.903812
+            }
+          },
+          "samples": {
+            "n": 24,
+            "valid_rate": 1.0,
+            "mean_best_iou": 0.723574,
+            "class_counts": {
+              "sphere": 10,
+              "cube": 5,
+              "octahedron": 9,
+              "unrecognized": 0
+            },
+            "class_accuracy": 0.833333
+          },
+          "latent_gaussian": {
+            "n": 24,
+            "valid_rate": 0.958333,
+            "mean_best_iou": 0.697239,
+            "class_counts": {
+              "sphere": 17,
+              "cube": 2,
+              "octahedron": 4,
+              "unrecognized": 1
+            }
+          },
+          "memorization": {
+            "mean_nn_weight_distance": 4.317341,
+            "median_train_loo_nn_distance": 5.055565,
+            "nn_distance_ratio": 0.853978,
+            "mean_max_iou_to_train_mask": 0.751964
+          }
+        },
+        "figures": {
+          "reconstruction": "results/figures/recon_3d_shared.png",
+          "samples": "results/figures/samples_3d_shared.png"
+        }
+      },
+      "independent": {
+        "init": "independent",
+        "parameter_count": 353,
+        "n_train": 54,
+        "n_test": 18,
+        "inr_test_iou": {
+          "mean": 0.984919,
+          "per_class": {
+            "sphere": 1.0,
+            "cube": 0.983492,
+            "octahedron": 0.971264
+          }
+        },
+        "controls_iou_to_own_target": {
+          "trained": {
+            "mean": 0.984919
+          },
+          "permuted": {
+            "mean": 0.984919
+          },
+          "shuffled": {
+            "mean": 0.206345
+          },
+          "random": {
+            "mean": 0.03854
+          }
+        },
+        "weight_probes": {
+          "raw": {
+            "test": {
+              "ridge": 0.5,
+              "centroid": 0.555556
+            },
+            "permuted": {
+              "ridge": 0.555556,
+              "centroid": 0.111111
+            },
+            "shuffled": {
+              "ridge": 0.611111,
+              "centroid": 0.611111
+            },
+            "random_abstain": {
+              "ridge": 0.0,
+              "centroid": 0.0
+            }
+          },
+          "canonical": {
+            "test": {
+              "ridge": 0.388889,
+              "centroid": 0.611111
+            },
+            "permuted": {
+              "ridge": 0.388889,
+              "centroid": 0.611111
+            }
+          }
+        },
+        "ridge_by_layer": {
+          "w1": 0.111111,
+          "w2": 0.555556,
+          "w3": 0.388889
+        },
+        "diffusion_pca": {
+          "components": 24,
+          "variance_explained": 0.79316,
+          "timesteps": 40,
+          "train_steps": 2500,
+          "denoise_timestep": 10,
+          "denoise_mse": {
+            "real": {
+              "mean": 1.855795,
+              "median": 1.574691
+            },
+            "permuted": {
+              "mean": 1.875468,
+              "median": 1.564521
+            },
+            "shuffled": {
+              "mean": 0.789969,
+              "median": 0.64305
+            },
+            "random": {
+              "mean": 0.851129,
+              "median": 0.847245
+            }
+          },
+          "samples": {
+            "n": 24,
+            "valid_rate": 0.25,
+            "mean_best_iou": 0.332108,
+            "class_counts": {
+              "sphere": 3,
+              "cube": 3,
+              "octahedron": 0,
+              "unrecognized": 18
+            },
+            "class_accuracy": 0.083333
+          },
+          "latent_gaussian": {
+            "n": 24,
+            "valid_rate": 0.625,
+            "mean_best_iou": 0.473348,
+            "class_counts": {
+              "sphere": 8,
+              "cube": 5,
+              "octahedron": 2,
+              "unrecognized": 9
+            }
+          },
+          "memorization": {
+            "mean_nn_weight_distance": 12.245656,
+            "median_train_loo_nn_distance": 19.590466,
+            "nn_distance_ratio": 0.625082,
+            "mean_max_iou_to_train_mask": 0.309653
+          }
+        },
+        "figures": {
+          "reconstruction": "results/figures/recon_3d_independent.png",
+          "samples": "results/figures/samples_3d_independent.png"
+        }
+      }
+    }
+  },
+  "runtime_sec": 63.081
+}

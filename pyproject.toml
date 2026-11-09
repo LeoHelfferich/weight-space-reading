@@ -1,0 +1,27 @@
+[project]
+name = "weight-space-experiment"
+version = "0.1.0"
+description = "Small-scale replication of weight-space programming on implicit shape networks."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy==2.5.4",
+  "matplotlib==3.11.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0"]
+
+[project.scripts]
+wsp-local = "wsp.local_experiment:main"
+wsp-probe = "wsp.probe.run:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,58 @@
+{
+  "seed": 0,
+  "hidden": 16,
+  "grid": 32,
+  "inr_steps": 300,
+  "inr_lr": 0.03,
+  "bank_per_class": 8,
+  "decimals": 4,
+  "iou_threshold": 0.5,
+  "classes": ["circle", "square", "triangle"],
+  "center_limit": 0.15,
+  "scale_min": 0.35,
+  "scale_max": 0.55,
+  "per_class": {
+    "real_shared": 1,
+    "real_independent": 1,
+    "permuted": 1,
+    "shuffled": 1,
+    "random": 1
+  },
+  "temperature": null,
+  "default_cap_eur": 3.0,
+  "cache_dir": "results/probe_cache",
+  "pinned_usd_to_eur": 0.89158,
+  "pinned_fx_date": "2026-11-02",
+  "models": {
+    "openai/gpt-6-astra": {
+      "max_tokens": 1024,
+      "expected_completion_tokens": 400,
+      "reasoning_effort": "low"
+    },
+    "anthropic/claude-opus-5.5": {
+      "max_tokens": 1536,
+      "expected_completion_tokens": 1200,
+      "reasoning_effort": "low"
+    }
+  },
+  "pinned_pricing": {
+    "openai/gpt-6-astra": {
+      "ceiling_prompt_per_token": 0.000011,
+      "ceiling_completion_per_token": 0.000055,
+      "cheap_prompt_per_token": 0.000005,
+      "cheap_completion_per_token": 0.000025,
+      "max_price_per_million": {"prompt": 11.01, "completion": 55.01},
+      "temperature_supported": false,
+      "reasoning_efforts": ["max", "xhigh", "high", "medium", "low"]
+    },
+    "anthropic/claude-opus-5.5": {
+      "ceiling_prompt_per_token": 0.0000044,
+      "ceiling_completion_per_token": 0.000022,
+      "cheap_prompt_per_token": 0.000004,
+      "cheap_completion_per_token": 0.00002,
+      "max_price_per_million": {"prompt": 4.41, "completion": 22.01},
+      "temperature_supported": false,
+      "reasoning_efforts": ["max", "xhigh", "high", "medium", "low"]
+    }
+  }
+}

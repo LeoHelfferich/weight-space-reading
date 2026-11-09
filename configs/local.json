@@ -1,0 +1,66 @@
+{
+  "seed": 0,
+  "iou_threshold": 0.5,
+  "ridge_l2": 10.0,
+  "tasks": [
+    {
+      "name": "2d",
+      "dim": 2,
+      "classes": ["circle", "square", "triangle"],
+      "grid": 32,
+      "hidden": 16,
+      "train_per_class": 36,
+      "test_per_class": 12,
+      "inr_steps": 300,
+      "inr_lr": 0.03,
+      "init_modes": ["shared", "independent"],
+      "center_limit": 0.15,
+      "scale_min": 0.35,
+      "scale_max": 0.55,
+      "full_dimensional_control": true,
+      "shuffled_model_control": true,
+      "diffusion": {
+        "pca_components": 32,
+        "timesteps": 40,
+        "beta_end": 0.08,
+        "train_steps": 3000,
+        "batch_size": 128,
+        "hidden": 128,
+        "lr": 0.001,
+        "time_dim": 32,
+        "samples_per_class": 16,
+        "denoise_timestep": 10,
+        "full_dimensional_steps": 1200
+      }
+    },
+    {
+      "name": "3d",
+      "dim": 3,
+      "classes": ["sphere", "cube", "octahedron"],
+      "grid": 12,
+      "hidden": 16,
+      "train_per_class": 18,
+      "test_per_class": 6,
+      "inr_steps": 400,
+      "inr_lr": 0.03,
+      "init_modes": ["shared", "independent"],
+      "center_limit": 0.15,
+      "scale_min": 0.35,
+      "scale_max": 0.55,
+      "full_dimensional_control": false,
+      "shuffled_model_control": false,
+      "diffusion": {
+        "pca_components": 24,
+        "timesteps": 40,
+        "beta_end": 0.08,
+        "train_steps": 2500,
+        "batch_size": 64,
+        "hidden": 128,
+        "lr": 0.001,
+        "time_dim": 32,
+        "samples_per_class": 8,
+        "denoise_timestep": 10
+      }
+    }
+  ]
+}
